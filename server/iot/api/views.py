@@ -70,12 +70,12 @@ def update_is_change(request,id):
 
 def time_c(request):
     now = int(time.strftime("%H%M", time.localtime()))
-    for obj in Time.objects.filter(ctrl=1, s_time__lte=now, is_change=0):
+    for obj in Time.objects.filter(ctrl=1, s_time__lte=now, c_time__gte=now, is_change=0):
         port = obj.port_id
         Port.objects.filter(pk=port, port_type=0).update(port_state=1, is_change=1)
         Time.objects.filter(port_id=port).update(is_change=1)
     # #
-    for obj in Time.objects.filter(ctrl=1, c_time__lte=now, is_change=1):
+    for obj in Time.objects.filter(ctrl=1, c_time__lte=now, s_time__lte=now, is_change=1):
         port = obj.port_id
         Port.objects.filter(pk=port, port_type=0).update(port_state=0, is_change=1)
         Time.objects.filter(port_id=port).update(is_change=0)
