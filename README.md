@@ -54,6 +54,7 @@ udp版本只能工作在type0状态，尚且不稳定，故不推荐使用
 ``` C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs ```  
 并重命名 打开你好小娜，设备就可以语音启动了 
 例如 快捷方式为 ```shutdown.exe -p``` 重命名为自毁程序 只要对小娜说```你好小娜，启动自毁程序```设备就关机了
+...
 
 
 
